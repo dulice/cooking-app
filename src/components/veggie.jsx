@@ -22,11 +22,16 @@ const Veggie = () => {
           options = { {
                 type         : 'loop',
                 perPage      : 3,
+                breakpoints: {
+                  640: {
+                    perPage: 1
+                  }
+                },
                 pauseOnHover : false,
                 resetProgress: false,
-                arrows: false,
                 pagination: false,
                 gap: '1rem',
+                autoplay: true
             }}
         >
           {vegetarian.map((item) => {

@@ -5,7 +5,6 @@ import Cuisine from './Cuisine'
 import Home from './home'
 import Searched from './Searched'
 import Detail from './Detail';
-import Hero from '../components/hero'
 
 const Pages = () => {
   return (

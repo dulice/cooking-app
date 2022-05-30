@@ -29,13 +29,13 @@ const Detail = () => {
      className="container-fluid">
        <div className="container">
          <div className="row">
-           <Layout className="col-12 col-md-6 ">
+           <Layout className="col-12 col-lg-6 ">
              <img src={details.image} alt="" />
-             <div className="mt-3 d-flex justify-content-center align-items-start">
+             <div className="mt-3 d-flex justify-content-center align-items-start text-center">
                 
                 <Icons className="bg-success">
                   <MdAttachMoney />
-                <h6>$ {(details.pricePerServing / 100).toFixed(2)} </h6>
+                <h6>$ {(details.pricePerServing / 100).toFixed(2)} per person</h6>
                 </Icons>
                 <Icons className="bg-success">
                   <FaUserFriends />
@@ -47,7 +47,7 @@ const Detail = () => {
                 </Icons>
              </div>
            </Layout>
-             <Layout className="col-12 col-md-6 ps-3 ">
+             <Layout className="col-12 col-lg-6 ps-3 ">
                <div className="mb-3">
                  <button onClick={() => setActiveBtn("Instructions")} className={activeBtn === "Instructions" ? "active" : ""} >Instructions</button>
                   <button onClick={() => setActiveBtn("Ingredients")} className={activeBtn === "Ingredients" ? "active" : ""} >Ingredients</button>

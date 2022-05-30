@@ -2,37 +2,46 @@ import React, {useState, useEffect} from 'react'
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { FaHeartbeat } from "react-icons/fa"
+import Title from '../components/Title';
 const Searched = () => {
      const [search, setSearch] = useState([]);
+     const [loading, setLoading] = useState(true);
     const params = useParams();
     const fetchSearch = async (name) => {
             const res = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${name}`);
             const data = await res.json();
-            console.log(data.results);
+            // console.log(data.results);
             setSearch(data.results);
+            setLoading(false);
         }
         useEffect(() => {
         fetchSearch(params.name);
         },[params.name])
   return (
-    <Grid>
-      {search.map((item) => {
-            return (
-              <Card className="shadow border" key={item.id}>
-                <Link to={"/detail/" + item.id}>
-                  <img src={item.image} alt="" />
-                  <div>
-                    <p>{item.title}</p>
-                    <Information className="border rounded p-1 shadow">
-                      <p className="text-muted">{item.healthScore}</p>
-                      < FaHeartbeat />
-                    </Information>
-                  </div>
-                </Link>
-              </Card>
-            )
-          })}
-    </Grid>
+    <>
+      <Title />
+      {loading ? <div>Loading...</div>
+      :
+      <Grid>
+        {search.map((item) => {
+              return (
+                <Card className="shadow border" key={item.id}>
+                  <Link to={"/detail/" + item.id}>
+                    <img src={item.image} alt="" />
+                    <div>
+                      <p>{item.title}</p>
+                      <Information className="border rounded p-1 shadow">
+                        <p className="text-muted">{item.healthScore}</p>
+                        < FaHeartbeat />
+                      </Information>
+                    </div>
+                  </Link>
+                </Card>
+              )
+            })}
+      </Grid>
+      }
+    </>
   )
 }
 

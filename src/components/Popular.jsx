@@ -18,17 +18,25 @@ const Popular = () => {
     },[]);
 
   return (
-    <div className="container mb-5">
+    <div className="container my-5">
         <h4 className="text-uppercase">Popular Recipes</h4>
         <Splide
           options = { {
                 type         : 'loop',
                 perPage      : 4,
+                breakpoints: {
+                  830: {
+                    perPage: 3
+                  },
+                  640: {
+                    perPage: 1
+                  }
+                },
                 pauseOnHover : false,
                 resetProgress: false,
-                arrows: false,
                 pagination: false,
                 gap: '1rem',
+                autoplay: true
             }}
         >
           {popular.map((item) => {

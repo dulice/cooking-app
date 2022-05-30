@@ -1,9 +1,9 @@
 import React from 'react'
 import Hero from '../components/hero'
-import Nav from '../components/Nav'
 import Popular from '../components/Popular'
 import Veggie from '../components/veggie'
 import { motion } from 'framer-motion'
+import Title from '../components/Title'
 
 const Home = () => {
   return (
@@ -14,7 +14,7 @@ const Home = () => {
       transition = {{duration : .5}}
     >
         < Hero />
-        <Nav />
+        <Title />
         <Popular />
         <Veggie />
     </motion.div>
